@@ -22,6 +22,19 @@ Pratikte şu iki katman arasında çalışır:
 3. **Sonuçlar birleştirilir**  
    Çıktılar, raporlama ve arayüz gösterimi için tek bir analiz sonuç setinde toplanır.
 
+## Çözücü Temeli
+
+Setuav analiz modülü, fizik çözüm katmanı olarak AeroSandbox kullanır; bunun
+üzerine Setuav'a özgü veri yönetimi ve raporlama adımlarını ekler.
+
+Pratikte:
+
+1. **AeroSandbox temel fizik çözümünü yürütür**  
+   Atmosfer durumunun hesaplanması, aerodinamik katsayıların üretilmesi ve seçili elektrikli itki model yardımcılarının kullanılması.
+
+2. **Setuav ürün seviyesindeki orkestrasyonu yürütür**  
+   Tasarım/spesifikasyon eşlemesi, komponent kütüphanesi entegrasyonu, limit/koşul kontrolleri ve sonuçların arayüz/rapor formatına dönüştürülmesi.
+
 ## Girdiler
 
 Analiz modülü üç girdi grubunu kullanır:

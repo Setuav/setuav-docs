@@ -5,8 +5,8 @@ use_directory_urls: true
 theme:
   name: material
   font:
-    text: Ubuntu
-    code: Ubuntu Mono
+    text: Roboto
+    code: Roboto Mono
   logo: assets/logo.svg
   favicon: assets/logo.svg
   palette:
@@ -52,9 +52,14 @@ plugins:
           name: Türkçe
           nav_translations:
             Introduction: Giriş
+            Overview: Genel Bakış
             Analysis: Analiz
+            Workflow: İş Akışı
+            Aerodynamics: Aerodinamik
 
 nav:
   - Introduction: index.md
   - Analysis:
     - Overview: analysis/index.md
+    - Workflow: analysis/workflow.md
+    - Aerodynamics: analysis/aerodynamics.md

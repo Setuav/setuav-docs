@@ -22,6 +22,19 @@ In practice, it is the computational layer between:
 3. **Results are consolidated**  
    Outputs are combined into a single analysis result set for reporting and UI display.
 
+## Solver Foundation
+
+Setuav analysis uses AeroSandbox as the primary physics solver layer, then
+applies Setuav-specific data handling and reporting on top of it.
+
+In practical terms:
+
+1. **AeroSandbox handles core physics solving**  
+   Atmospheric state evaluation, aerodynamic coefficient calculation, and selected electric propulsion model utilities.
+
+2. **Setuav handles product-level orchestration**  
+   Design/specification mapping, component library integration, constraints/limits, and final output packaging for UI and reports.
+
 ## Inputs
 
 The analysis module expects three input groups:
