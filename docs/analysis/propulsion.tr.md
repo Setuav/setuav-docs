@@ -84,7 +84,7 @@ C_t = C_t(\mathrm{RPM}, J),
 C_p = C_p(\mathrm{RPM}, J)
 $$
 
-Katsayılar okunduktan sonra aynı işletim noktasında tork, itki ve şaft gücü türetilir. Burada $\rho$ hava yoğunluğudur:
+Katsayılar okunduktan sonra aynı işletim noktasında tork $Q_{\mathrm{prop}}$, itki $T$ ve şaft gücü $P_{\mathrm{shaft}}$ türetilir. Burada $\rho$ hava yoğunluğudur:
 
 $$
 Q_{\mathrm{prop}} = \frac{C_p \rho n^2 D^5}{2\pi}

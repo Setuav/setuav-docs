@@ -82,7 +82,7 @@ C_t = C_t(\mathrm{RPM}, J),
 C_p = C_p(\mathrm{RPM}, J)
 $$
 
-Once coefficients are known, torque, thrust, and shaft power are obtained. Here $\rho$ is air density:
+Once coefficients are known, torque $Q_{\mathrm{prop}}$, thrust $T$, and shaft power $P_{\mathrm{shaft}}$ are obtained. Here $\rho$ is air density:
 
 $$
 Q_{\mathrm{prop}} = \frac{C_p \rho n^2 D^5}{2\pi}
