@@ -1,0 +1,903 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Setuav documentation">
+      
+      
+      
+      
+        <link rel="prev" href="../workflow/">
+      
+      
+        <link rel="next" href="../propulsion/">
+      
+      
+        
+          <link rel="alternate" href="../../../analysis/aerodynamics/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="tr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Aerodinamik - Setuav Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aerodinamik" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href="../../" title="Setuav Docs" class="md-header__button md-logo" aria-label="Setuav Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Setuav Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aerodinamik
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Dil seç">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../analysis/aerodynamics/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Setuav Docs" class="md-nav__button md-logo" aria-label="Setuav Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    Setuav Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analiz
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analiz
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genel Bakış
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    İş Akışı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerodinamik
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerodinamik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yontem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yöntem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hazrlk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hazırlık
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hazırlık">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometri-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometri Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucus-kosulu-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uçuş Koşulu Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cozum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Çözüm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Çözüm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aerodinamik-katsay-cozumu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aerodinamik Katsayı Çözümü
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    İtki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yontem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yöntem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hazrlk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hazırlık
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hazırlık">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometri-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometri Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucus-kosulu-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uçuş Koşulu Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cozum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Çözüm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Çözüm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aerodinamik-katsay-cozumu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aerodinamik Katsayı Çözümü
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aerodinamik">Aerodinamik</h1>
+<p>Aerodinamik analiz, uçağın hangi hız ve hücum açısı aralığında güvenli ve verimli uçabileceğini görmek için yapılır. Bu hesaplama; kaldırma, sürükleme ve verimlilik davranışını ortaya koyarak stall sınırlarını, uçuş marjlarını ve performans analizine girecek temel verileri üretir.</p>
+<h2 id="yontem">Yöntem</h2>
+<p>Bu aşamada AeroSandbox yazılımı kullanılır. AeroSandbox, Peter D. Sharpe tarafından uçak tasarım optimizasyonunu hızlandırmak ve aerodinamik/itki/yapı/misyon gibi havacılık analizlerini aynı sayısal çerçevede çözmek amacıyla geliştirilmiş açık kaynaklı bir Python mühendislik yazılımıdır. Setuav içinde tercih edilme nedeni, parametrik hava aracı geometrisini ve uçuş koşullarını doğrudan modele alabilmesi ve hücum açısı taramasında tutarlı <code>CL</code>/<code>CD</code> üretmesidir. Güvenirlik açısından yöntem açık kaynak kodu, MIT lisansı, sürüm geçmişi, kamuya açık dokümantasyon ve doğrudan atıf verilen MIT tez çalışması üzerinden izlenebilir ve denetlenebilir durumdadır (<a href="https://peterdsharpe.github.io/AeroSandbox/">AeroSandbox</a>, <a href="https://github.com/peterdsharpe/AeroSandbox">GitHub</a>, <a href="https://dspace.mit.edu/handle/1721.1/140023">MIT 2021 Tezi</a>).</p>
+<p>Bu aşamada kullanılan başlıca AeroSandbox bileşenleri şunlardır:</p>
+<ul>
+<li><code>Airplane</code></li>
+<li><code>Wing</code> ve <code>WingXSec</code></li>
+<li><code>Fuselage</code> ve <code>FuselageXSec</code></li>
+<li><code>Atmosphere</code></li>
+<li><code>OperatingPoint</code></li>
+<li><code>AeroBuildup</code></li>
+</ul>
+<h2 id="hazrlk">Hazırlık</h2>
+<h3 id="geometri-hazrlg">Geometri Hazırlığı</h3>
+<p>AeroSandbox tarafında geometri, üst seviyede bir <code>Airplane</code> nesnesi olarak temsil edilir; bu nesnenin içinde kanatlar <code>Wing</code> (kesitler <code>WingXSec</code>), gövde ise <code>Fuselage</code> (kesitler <code>FuselageXSec</code>) ile tanımlanır. Yani specification içindeki profil/kesit tabanlı geometri, analizde doğrudan kesit listeleri üzerinden tanımlanan bu nesnelere dönüştürülür ve her kesitte konum, boyut, açı ve profil bilgisi açıkça taşınır.</p>
+<table>
+<thead>
+<tr>
+<th>Specification alanı</th>
+<th>AeroSandbox karşılığı</th>
+<th>Dönüşüm / Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>airframe.wings[].component.geometry.profiles[].position.(x,y,z)</code></td>
+<td><code>WingXSec.xyz_le</code></td>
+<td><code>mm -&gt; m</code> dönüşümü uygulanır</td>
+</tr>
+<tr>
+<td><code>airframe.wings[].component.geometry.profiles[].chord</code></td>
+<td><code>WingXSec.chord</code></td>
+<td><code>mm -&gt; m</code> dönüşümü uygulanır</td>
+</tr>
+<tr>
+<td><code>airframe.wings[].component.geometry.profiles[].rotation.x</code></td>
+<td><code>WingXSec.twist</code></td>
+<td>Derece cinsinden aktarılır</td>
+</tr>
+<tr>
+<td><code>airframe.wings[].component.geometry.profiles[].airfoil</code></td>
+<td><code>WingXSec.airfoil</code></td>
+<td>NACA / dosya / koordinat tipine göre <code>asb.Airfoil</code> oluşturulur</td>
+</tr>
+<tr>
+<td><code>airframe.wings[].attachment.position.(x,z)</code></td>
+<td><code>WingXSec.xyz_le</code> ofseti</td>
+<td><code>mm -&gt; m</code>; kanat bağlama <code>y</code> ofseti merkez hatta sabitlenir</td>
+</tr>
+<tr>
+<td><code>airframe.wings[].attachment.rotation.(x,y,z)</code></td>
+<td><code>WingXSec.xyz_le</code> dönüşümü</td>
+<td>XYZ dönüş matrisiyle uygulanır</td>
+</tr>
+<tr>
+<td><code>airframe.wings[].attachment.mirror</code></td>
+<td><code>Wing.symmetric</code></td>
+<td>Modeldeki <code>mirror</code> değeri doğrudan kullanılır</td>
+</tr>
+<tr>
+<td><code>airframe.fuselage.geometry.segments[].sections[].position.(x,y,z)</code></td>
+<td><code>FuselageXSec.xyz_c</code></td>
+<td><code>mm -&gt; m</code> dönüşümü uygulanır</td>
+</tr>
+<tr>
+<td><code>airframe.fuselage.geometry.segments[].sections[].profile</code></td>
+<td><code>FuselageXSec.width</code>, <code>FuselageXSec.height</code></td>
+<td><code>circle/ellipse/rectangle/rounded_rectangle</code> tipine göre boyutlar atanır</td>
+</tr>
+<tr>
+<td>Aerodinamik referans noktası</td>
+<td><code>Airplane.xyz_ref</code></td>
+<td>Bu aşamada <code>[0.0, 0.0, 0.0]</code> olarak atanır</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ucus-kosulu-hazrlg">Uçuş Koşulu Hazırlığı</h3>
+<p>Geometri hazırlandıktan sonra analiz koşulları AeroSandbox'ın atmosfer ve uçuş durumu nesnelerine dönüştürülür. Bu adımda çevresel koşullar <code>Atmosphere</code> ile tanımlanır ve çözümde kullanılacak anlık durum <code>OperatingPoint</code> ile kurulur.</p>
+<table>
+<thead>
+<tr>
+<th>Analiz koşulu alanı</th>
+<th>AeroSandbox karşılığı</th>
+<th>Dönüşüm / Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>conditions.altitude_msl</code></td>
+<td><code>Atmosphere.altitude</code></td>
+<td><code>m</code> biriminde doğrudan aktarılır</td>
+</tr>
+<tr>
+<td><code>conditions.temperature</code></td>
+<td><code>create_atmosphere(..., temperature_c)</code></td>
+<td><code>°C</code> girdisi atmosfer kurulumunda kullanılır</td>
+</tr>
+<tr>
+<td><code>conditions.air_density</code></td>
+<td><code>Atmosphere.temperature_deviation</code> ile eşlenmiş atmosfer</td>
+<td>Yoğunluk override varsa hedef yoğunluğa göre sıcaklık sapması sayısal olarak çözülür</td>
+</tr>
+<tr>
+<td>Aerodinamik referans hız (analiz kurulumu)</td>
+<td><code>OperatingPoint.velocity</code></td>
+<td>Mevcut akışta başlangıç aerodinamik çözümü <code>15.0 m/s</code> ile kurulur</td>
+</tr>
+<tr>
+<td>Başlangıç açıları</td>
+<td><code>OperatingPoint.alpha</code>, <code>OperatingPoint.beta</code></td>
+<td>Başlangıçta <code>0°</code> alınır; <code>alpha</code> taraması sonraki çözüm adımında yapılır</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cozum">Çözüm</h2>
+<h3 id="aerodinamik-katsay-cozumu">Aerodinamik Katsayı Çözümü</h3>
+<p>Bu adımda <code>alpha</code> taraması oluşturulur ve her açı noktasında <code>AeroBuildup</code> çalıştırılarak katsayılar elde edilir. Elde edilen noktasal <code>CL</code>/<code>CD</code> dizileri, Setuav tarafında performans raporunda kullanılan türetilmiş metriklere dönüştürülür.</p>
+<p><code>AeroBuildup</code>, AeroSandbox içinde uçağın toplam aerodinamik davranışını bileşen katkılarını birleştirerek hesaplayan çözücüdür. Kanat ve gövde geometrisini, uçuş durumunu (<code>OperatingPoint</code>) ve atmosfer bilgisini birlikte kullanarak her <code>alpha</code> noktasında toplam kaldırma ve sürükleme katsayılarını üretir; bu üretimde viskoz etkiler, stall davranışı ve konfigürasyona göre dalga sürüklemesi etkileri de modele dahil edilir. Setuav, bu çözücüden doğrudan <code>CL</code> ve <code>CD</code> alıp kalan metrikleri kendi tarafında türetir.</p>
+<table>
+<thead>
+<tr>
+<th>Çözüm adımı</th>
+<th>Uygulama</th>
+<th>Çıktı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alpha</code> taraması</td>
+<td><code>alpha_min</code>, <code>alpha_max</code>, <code>alpha_steps</code> ile doğrusal tarama oluşturulur</td>
+<td><code>alpha</code> noktaları</td>
+</tr>
+<tr>
+<td>Çözücü konfigürasyonu</td>
+<td><code>include_wave_drag</code> ve çözünürlükten türetilen <code>model_size</code> (<code>small/medium/large</code>) ile <code>AeroBuildup</code> yapılandırılır</td>
+<td>Konfigürasyona bağlı katsayı çözümü</td>
+</tr>
+<tr>
+<td>Durum varsayımları</td>
+<td>Her <code>alpha</code> noktasında <code>beta=0</code>, <code>p=0</code>, <code>q=0</code>, <code>r=0</code> kabulüyle çözüm çalıştırılır</td>
+<td>Yalın (quasi-steady) katsayı seti</td>
+</tr>
+<tr>
+<td>Noktasal katsayı çözümü</td>
+<td>Her <code>alpha</code> için <code>AeroBuildup(airplane, op_point)</code> çalıştırılır</td>
+<td><code>CL(alpha)</code>, <code>CD(alpha)</code></td>
+</tr>
+<tr>
+<td>Verimlilik hesabı</td>
+<td>Her noktada <code>L/D = CL / CD</code> hesaplanır</td>
+<td><code>L/D(alpha)</code></td>
+</tr>
+<tr>
+<td>Ana metrik çıkarımı</td>
+<td>Dizi üzerinden <code>CL_max</code>, <code>CD_min</code>, <code>L/D_max</code> seçilir</td>
+<td>Özet aerodinamik metrikler</td>
+</tr>
+<tr>
+<td>Referans geometri</td>
+<td>Kanat kesitlerinden span/alan hesaplanır; <code>mean_chord</code> ve <code>AR</code> türetilir</td>
+<td><code>span</code>, <code>area</code>, <code>mean_chord</code>, <code>aspect_ratio</code></td>
+</tr>
+<tr>
+<td>Reynolds hesabı</td>
+<td><code>Re = rho * V * mean_chord / mu</code></td>
+<td><code>reynolds_number</code></td>
+</tr>
+<tr>
+<td>Rapor birim dönüşümü</td>
+<td>Geometri çıktıları rapora yazılırken <code>m -&gt; mm</code>, <code>m² -&gt; mm²</code> çevrilir</td>
+<td>Spesifikasyon birimlerinde rapor çıktısı</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+    
+  </body>
+</html>

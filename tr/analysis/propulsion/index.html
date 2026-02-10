@@ -1,0 +1,892 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Setuav documentation">
+      
+      
+      
+      
+        <link rel="prev" href="../aerodynamics/">
+      
+      
+      
+        
+          <link rel="alternate" href="../../../analysis/propulsion/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="tr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>İtki - Setuav Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#itki" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href="../../" title="Setuav Docs" class="md-header__button md-logo" aria-label="Setuav Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Setuav Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              İtki
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Dil seç">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../analysis/propulsion/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Setuav Docs" class="md-nav__button md-logo" aria-label="Setuav Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.svg" alt="logo">
+
+    </a>
+    Setuav Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analiz
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analiz
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genel Bakış
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    İş Akışı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aerodynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerodinamik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    İtki
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    İtki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yontem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yöntem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hazrlk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hazırlık
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hazırlık">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bilesen-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bileşen Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kosul-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koşul Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cozum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Çözüm
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yontem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yöntem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hazrlk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hazırlık
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hazırlık">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bilesen-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bileşen Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kosul-hazrlg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koşul Hazırlığı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cozum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Çözüm
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="itki">İtki</h1>
+<h2 id="yontem">Yöntem</h2>
+<p>Setuav itki analizi hız-bağımlı tek bir çözüm akışı kullanır. Her işletim noktası uçuş hızı <span class="arithmatex">\(V\)</span> ve throttle <span class="arithmatex">\(u\)</span> ile tanımlanır. Pervane katsayıları veritabanından <span class="arithmatex">\(\mathrm{RPM}\)</span> ve ilerleme oranı <span class="arithmatex">\(J\)</span> üzerinden alınır; motor tarafında <span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(I_0\)</span> ile elektrik-mekanik denge kurulur; batarya tarafında gerilim düşümü ve verim kayıpları aynı döngü içinde hesaba katılır. Böylece statik ve dinamik sonuçlar iki ayrı modelden değil aynı fizik zincirinden üretilir.</p>
+<h2 id="hazrlk">Hazırlık</h2>
+<h3 id="bilesen-hazrlg">Bileşen Hazırlığı</h3>
+<p>Çözümden önce itki sistemi bileşenleri hem tamlık hem de fiziksel geçerlilik açısından doğrulanır. Bu adımda motor, batarya ve pervane verileri tek çözücüye girecek ortak bir sisteme dönüştürülür.</p>
+<table>
+<thead>
+<tr>
+<th>Tasarım alanı</th>
+<th>Çözümde karşılığı</th>
+<th>Kontrol / Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>propulsion.motors[].kv</code></td>
+<td><span class="arithmatex">\(K_v\)</span></td>
+<td>Zorunlu, <span class="arithmatex">\(&gt; 0\)</span></td>
+</tr>
+<tr>
+<td><code>propulsion.motors[].resistance</code></td>
+<td><span class="arithmatex">\(R\)</span> (sıcaklık ölçekli)</td>
+<td>Zorunlu, <span class="arithmatex">\(&gt; 0\)</span>, <code>motor_resistance_temp_factor</code> ile ölçeklenir</td>
+</tr>
+<tr>
+<td><code>propulsion.motors[].no_load_current</code></td>
+<td><span class="arithmatex">\(I_0\)</span></td>
+<td>Zorunlu, <span class="arithmatex">\(\ge 0\)</span></td>
+</tr>
+<tr>
+<td><code>propulsion.motors[].current_max</code></td>
+<td><span class="arithmatex">\(I_{\max}\)</span></td>
+<td>Eksikse yüksek bir sınırla ikame edilir</td>
+</tr>
+<tr>
+<td><code>propulsion.batteries[].voltage_nominal</code></td>
+<td><span class="arithmatex">\(V_{\mathrm{nom}}\)</span></td>
+<td>Zorunlu, <span class="arithmatex">\(&gt; 0\)</span></td>
+</tr>
+<tr>
+<td><code>propulsion.batteries[].cells_series</code></td>
+<td><span class="arithmatex">\(n_{\mathrm{cells}}\)</span></td>
+<td>Sag hesabında kullanılır; yoksa voltajdan türetilir</td>
+</tr>
+<tr>
+<td><code>propulsion.batteries[].cell_resistance</code></td>
+<td><span class="arithmatex">\(R_{\mathrm{pack}}\)</span> bileşeni</td>
+<td>Yoksa config fallback kullanılır</td>
+</tr>
+<tr>
+<td><code>propulsion.propellers[].(diameter,pitch,blade_count)</code></td>
+<td>DB lookup girdisi</td>
+<td>Veritabanı eşleşmesi zorunlu</td>
+</tr>
+</tbody>
+</table>
+<p>Tork sabiti konfigürasyonda override edilmemişse doğrudan hız sabitinden türetilir:</p>
+<div class="arithmatex">\[
+K_t = \frac{60}{2\pi K_v}
+\]</div>
+<p>Bu adım sonunda çözücü; motor, batarya, pervane ve motor sayısını tek bir sistem spesifikasyonu olarak kullanır.</p>
+<h3 id="kosul-hazrlg">Koşul Hazırlığı</h3>
+<p>İtki denklemlerinde kullanılacak atmosfer durumu analiz koşullarından üretilir.</p>
+<table>
+<thead>
+<tr>
+<th>Analiz koşulu alanı</th>
+<th>Çözümde karşılığı</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>conditions.altitude_msl</code></td>
+<td>Atmosfer modeli</td>
+<td>Yoğunluk durumuna girer</td>
+</tr>
+<tr>
+<td><code>conditions.temperature</code></td>
+<td>Atmosfer modeli</td>
+<td>Yoğunluk ve ses hızı durumunu etkiler</td>
+</tr>
+<tr>
+<td><code>conditions.air_density</code></td>
+<td><span class="arithmatex">\(\rho\)</span></td>
+<td>Varsa doğrudan override etkisi uygulanır</td>
+</tr>
+<tr>
+<td><code>conditions.total_mass</code></td>
+<td><span class="arithmatex">\(\mathrm{thrust\_to\_weight}\)</span> raporu</td>
+<td>Çekirdek prop çözücüden çok rapor metriğinde kullanılır</td>
+</tr>
+</tbody>
+</table>
+<p>Çözüm döngüsünde pervane tarafının ana girdisi <span class="arithmatex">\(V\)</span>, elektrik tarafının ana girdisi <span class="arithmatex">\(V_{\mathrm{pack}}\)</span> olur ve <span class="arithmatex">\(V_{\mathrm{pack}}\)</span> her iterasyonda sag geri beslemesi ile güncellenir.</p>
+<h2 id="cozum">Çözüm</h2>
+<p>Güç zinciri, çözüm içinde doğrudan aşağıdaki enerji dönüşümü olarak ele alınır:</p>
+<div class="arithmatex">\[
+P_{\mathrm{bat}}
+\;\xrightarrow[\mathrm{ESC}]{\eta_{\mathrm{esc}}}\;
+P_{\mathrm{motor}}
+\;\xrightarrow[\mathrm{Motor}]{I^2R,\;I_0,\;\eta_{\mathrm{bemf}}}\;
+P_{\mathrm{shaft}}
+\;\xrightarrow[\mathrm{Pervane}]{C_t,\;C_p,\;J}\;
+T
+\]</div>
+<p>Burada <span class="arithmatex">\(P_{\mathrm{bat}}\)</span> bataryadan çekilen gücü, <span class="arithmatex">\(P_{\mathrm{motor}}\)</span> motor elektrik giriş gücünü, <span class="arithmatex">\(P_{\mathrm{shaft}}\)</span> şaft gücünü ve <span class="arithmatex">\(T\)</span> itki çıktısını temsil eder. Okların üzerindeki terimler, her geçişte baskın olan kayıp veya dönüşüm mekanizmasını ifade eder.</p>
+<p>Bu geçişlerin kayıp özeti:</p>
+<table>
+<thead>
+<tr>
+<th>Aşama</th>
+<th>Geçiş</th>
+<th>Kayıp mekanizması</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESC</td>
+<td><span class="arithmatex">\(P_{\mathrm{bat}} \rightarrow P_{\mathrm{motor}}\)</span></td>
+<td>Anahtarlama/iletim kayıpları, <span class="arithmatex">\(P_{\mathrm{motor}} \approx P_{\mathrm{bat}}\eta_{\mathrm{esc}}\)</span></td>
+</tr>
+<tr>
+<td>Motor</td>
+<td><span class="arithmatex">\(P_{\mathrm{motor}} \rightarrow P_{\mathrm{shaft}}\)</span></td>
+<td>Bakır kaybı <span class="arithmatex">\(P_{\mathrm{Cu}} = I_{\mathrm{motor}}^2R\)</span>, boşta kayıp <span class="arithmatex">\(P_0 \approx V_{\mathrm{motor}}I_0\)</span>, ek manyetik/mekanik kayıplar</td>
+</tr>
+<tr>
+<td>Pervane</td>
+<td><span class="arithmatex">\(P_{\mathrm{shaft}} \rightarrow T\)</span></td>
+<td>Aerodinamik kayıplar; çalışma noktası <span class="arithmatex">\(C_t/C_p\)</span> ve <span class="arithmatex">\(J\)</span> ile belirlenir</td>
+</tr>
+</tbody>
+</table>
+<p>Hesap, pervane ilerleme oranı <span class="arithmatex">\(J\)</span> (Advance Ratio) hesaplanarak başlar. Uçuş hızı <span class="arithmatex">\(V\)</span>, devir <span class="arithmatex">\(n\)</span> ve çap <span class="arithmatex">\(D\)</span> ile <span class="arithmatex">\(J\)</span> bulunur:</p>
+<div class="arithmatex">\[
+J = \frac{V}{nD}
+\]</div>
+<p>J, pervanenin havada ne kadar "verimli" ilerlediğini gösteren boyutsuz bir parametredir. Pervanenin bir devirde aldığı yol ile çapının oranıdır.</p>
+<p>Bu denklemde <span class="arithmatex">\(J\)</span>, pervanenin ileri uçuşta ne kadar "boşta" veya ne kadar "yükte" çalıştığını belirleyen temel parametredir. <span class="arithmatex">\(J\)</span> arttıkça aynı devirde pervane diskinden geçen eksenel akış artar; bu da tipik olarak <span class="arithmatex">\(C_t\)</span> ve <span class="arithmatex">\(C_p\)</span> davranışını değiştirir.</p>
+<p>Bulunan <span class="arithmatex">\(J\)</span> değeri ve <span class="arithmatex">\(\mathrm{RPM}\)</span> ile veritabanından katsayılar okunur:</p>
+<div class="arithmatex">\[
+C_t = C_t(\mathrm{RPM}, J),
+\qquad
+C_p = C_p(\mathrm{RPM}, J)
+\]</div>
+<p>Katsayılar okunduktan sonra aynı işletim noktasında tork, itki ve şaft gücü türetilir. Burada <span class="arithmatex">\(\rho\)</span> hava yoğunluğudur:</p>
+<div class="arithmatex">\[
+Q_{\mathrm{prop}} = \frac{C_p \rho n^2 D^5}{2\pi}
+\]</div>
+<div class="arithmatex">\[
+T = C_t \rho n^2 D^4
+\]</div>
+<div class="arithmatex">\[
+P_{\mathrm{shaft}} = C_p \rho n^3 D^5
+\]</div>
+<p>Bu üç denklem birlikte, pervane aerodinamiğinin elektrik tarafına bindirdiği yükü tanımlar. Özellikle <span class="arithmatex">\(D\)</span> çapının kuvvetli üstel etkisi (<span class="arithmatex">\(D^4\)</span>, <span class="arithmatex">\(D^5\)</span>), küçük çap değişimlerinin bile tork ve güç gereksinimini belirgin şekilde değiştirmesine neden olur.</p>
+<p>Motor denge adımında tork-akım ve gerilim bağı birlikte çözülür. Bu adımda <span class="arithmatex">\(K_v\)</span> hız sabiti, <span class="arithmatex">\(K_t\)</span> tork sabiti, <span class="arithmatex">\(I_0\)</span> boşta akım, <span class="arithmatex">\(R\)</span> ise sıcaklıkla ölçeklenmiş motor direncidir:</p>
+<div class="arithmatex">\[
+I_{\mathrm{motor}} = \frac{Q_{\mathrm{prop}}}{K_t} + I_0
+\]</div>
+<div class="arithmatex">\[
+V_{\mathrm{back}} = \frac{\mathrm{RPM}}{K_v \eta_{\mathrm{bemf}}}
+\]</div>
+<div class="arithmatex">\[
+V_{\mathrm{motor}} \approx V_{\mathrm{back}} + I_{\mathrm{motor}}R
+\]</div>
+<p>Bu adımın fiziksel anlamı şudur: pervane torku arttıkça <span class="arithmatex">\(I_{\mathrm{motor}}\)</span> artar, akım arttıkça hem <span class="arithmatex">\(I^2R\)</span> kaybı hem de gerekli terminal gerilim artar. Çözüm, bu dengeyi aynı anda sağlayan <span class="arithmatex">\(\mathrm{RPM}\)</span> ve akım kombinasyonunu iteratif olarak arar.</p>
+<p>Motor tarafındaki elektrik gücü batarya tarafına, ESC ve batarya verimleri üzerinden taşınır. Burada <span class="arithmatex">\(\eta_{\mathrm{esc}}\)</span> ESC verimi, <span class="arithmatex">\(\eta_{\mathrm{batt}}\)</span> batarya deşarj verimidir:</p>
+<div class="arithmatex">\[
+P_{\mathrm{motor,elec}} \approx V_{\mathrm{motor}} I_{\mathrm{motor}}
+\]</div>
+<div class="arithmatex">\[
+P_{\mathrm{batt}} = \frac{P_{\mathrm{motor,elec}}}{\eta_{\mathrm{esc}} \eta_{\mathrm{batt}}}
+\]</div>
+<div class="arithmatex">\[
+I_{\mathrm{pack}} = \frac{P_{\mathrm{batt}}}{V_{\mathrm{pack}}}
+\]</div>
+<p>Bu dönüşümde kritik nokta, kayıpların ardışık olarak birikmesidir: aynı şaft gücü ihtiyacı için <span class="arithmatex">\(P_{\mathrm{batt}}\)</span>, her verim katmanında büyüyerek daha yüksek batarya akımı gerektirir.</p>
+<p>Yük akımı belirlendikten sonra paket iç direnci <span class="arithmatex">\(R_{\mathrm{pack}}\)</span> ile gerilim düşümü güncellenir ve çözüme geri beslenir:</p>
+<div class="arithmatex">\[
+V_{\mathrm{pack,new}} = V_{\mathrm{nom}} - I_{\mathrm{pack}}R_{\mathrm{pack}}
+\]</div>
+<p>Bu geri besleme, akım yükseldikçe voltajın düşmesini modele dahil eder; voltaj düşünce aynı itki için daha zor bir motor çalışma noktası oluşur ve çözüm bu etkiyi otomatik yakalar.</p>
+<p>Aynı iterasyon içinde termal ve akım güvenliği denetlenir. Burada <span class="arithmatex">\(T_{\mathrm{amb}}\)</span> ortam sıcaklığı, <span class="arithmatex">\(R_{\mathrm{th}}\)</span> termal direnç, <span class="arithmatex">\(T_{\max}\)</span> limit sıcaklıktır:</p>
+<div class="arithmatex">\[
+T_{\mathrm{motor}} = T_{\mathrm{amb}} + \left(P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}\right)R_{\mathrm{th}}
+\]</div>
+<div class="arithmatex">\[
+I_{\mathrm{motor}} &gt; I_{\max}
+\quad \text{veya} \quad
+T_{\mathrm{motor}} &gt; T_{\max}
+\]</div>
+<p>Sıcaklık denklemi, şafta aktarılamayan elektrik gücünü ısıl kayıp olarak kabul eder. Bu yüzden <span class="arithmatex">\(P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}\)</span> farkı büyüdükçe motor sıcaklığı hızla yükselir.</p>
+<p>Bu eşiklerden biri aşılırsa nokta geçersiz kabul edilir. Geçerli noktalarda raporlanan sistem verimi gram/Watt biçimindedir ve <span class="arithmatex">\(T_g\)</span> gram cinsinden itki olmak üzere şöyle hesaplanır:</p>
+<div class="arithmatex">\[
+\eta_{g/W} = \frac{T_g}{P_{\mathrm{batt}}}
+\]</div>
+<p>Bu metrik, bataryadan çekilen her Watt başına üretilen itkiyi doğrudan verdiği için farklı hız noktaları arasında kıyaslamayı netleştirir. Aynı akış tüm hız noktalarına uygulanarak dinamik eğrileri üretir; statik sonuçlar ise bu çözüm setinin sıfıra yakın hız kesitinden alınır.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+    
+  </body>
+</html>
