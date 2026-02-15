@@ -1,0 +1,3 @@
+# Hızlı Başlangıç
+
+Yakında eklenecek.

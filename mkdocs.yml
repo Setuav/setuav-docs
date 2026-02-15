@@ -27,9 +27,10 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.sections
+    - navigation.indexes
 
 markdown_extensions:
+  - admonition
   - pymdownx.arithmatex:
       generic: true
 
@@ -51,15 +52,23 @@ plugins:
         - locale: tr
           name: Türkçe
           nav_translations:
-            Introduction: Giriş
             Overview: Genel Bakış
             Analysis: Analiz
+            Quick Start: Hızlı Başlangıç
+            Download and Install: İndir ve Kur
+            Support: Destek
             Aerodynamics: Aerodinamik
             Propulsion: İtki
+            Flight Performance: Uçuş Performansı
 
 nav:
-  - Introduction: index.md
+  - Overview:
+    - Overview: index.md
+    - Quick Start: quick-start.md
+    - Download and Install: download-and-install.md
+    - Support: support.md
   - Analysis:
     - Overview: analysis/index.md
     - Aerodynamics: analysis/aerodynamics.md
     - Propulsion: analysis/propulsion.md
+    - Flight Performance: analysis/performance.md
