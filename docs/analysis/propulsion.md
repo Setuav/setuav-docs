@@ -1,48 +1,62 @@
 # Propulsion
 
+Propulsion analysis computes how much thrust an electric propulsion system can produce at a given flight speed and what electrical cost is required to produce it. The result depends directly on motor physical properties ($K_v$, $R$, $I_0$, current limit), battery electrical state (nominal voltage, internal resistance, efficiency, usable capacity), ESC conversion efficiency, propeller geometry and aerodynamic characteristics ($C_t$, $C_p$), and ambient conditions (especially air density $\rho$). Physically, the calculation is solved as one coupled energy-loading chain: compute advance ratio $J$ from speed and rotational rate, derive propeller thrust/torque loading, solve motor voltage-current-torque equilibrium, then feed battery/ESC losses and voltage sag back into the same operating point.
+
 ## Method
 
-Setuav propulsion is solved through a single speed-dependent flow. Each operating point is defined by flight speed $V$ and throttle $u$. Propeller coefficients are read from the database using $\mathrm{RPM}$ and advance ratio $J$; motor electrical-mechanical balance is solved with $K_v$, $R$, and $I_0$; battery-side sag and efficiency losses are applied in the same loop. This keeps static and dynamic outputs physically consistent because they come from one chain.
+This method treats the physical problem as a coupled equilibrium: for a given flight speed $V$ and throttle $u$ (or required thrust), propeller loading, motor electrical balance, and battery/ESC energy conversion must be satisfied at the same operating point. The solver first defines propeller operating state through $J$, then iteratively matches the resulting torque-thrust demand with motor-side $K_v$-$R$-$I_0$ voltage-current-torque balance. Voltage sag and conversion losses are fed back each iteration until a single converged operating point is found, so static and dynamic outputs come from the same physics model.
 
 ## Preparation
 
 ### Component Preparation
 
-Before solving, propulsion components are validated for completeness and physical consistency. Motor, battery, and propeller data are normalized into one solver-ready system specification.
+The goal of this stage is to convert propulsion inputs into a solver-ready and physically consistent data set. After validation, the analysis runs on one unified component specification instead of handling incomplete or conflicting fields at runtime.
 
-| Design field | Solver representation | Validation / Note |
-| --- | --- | --- |
-| `propulsion.motors[].kv` | $K_v$ | Required, must be $> 0$ |
-| `propulsion.motors[].resistance` | $R$ (temperature-scaled) | Required, must be $> 0$, scaled by `motor_resistance_temp_factor` |
-| `propulsion.motors[].no_load_current` | $I_0$ | Required, must be $\ge 0$ |
-| `propulsion.motors[].current_max` | $I_{\max}$ | Replaced with a high bound if missing |
-| `propulsion.batteries[].voltage_nominal` | $V_{\mathrm{nom}}$ | Required, must be $> 0$ |
-| `propulsion.batteries[].cells_series` | $n_{\mathrm{cells}}$ | Used in sag; inferred from voltage if missing |
-| `propulsion.batteries[].cell_resistance` | part of $R_{\mathrm{pack}}$ | Config fallback when missing |
-| `propulsion.propellers[].(diameter,pitch,blade_count)` | DB lookup input | Database match is mandatory |
+Preparation normalizes three groups: motor electrical parameters, battery pack parameters, and propeller geometry. This keeps all operating-point solves on the same data structure.
 
-If torque constant is not overridden in config, it is derived from speed constant:
-
-$$
-K_t = \frac{60}{2\pi K_v}
-$$
-
-At the end of this stage, the solver has one system object containing motor, battery, propeller, and motor count.
+| Input | Solution mapping |
+| --- | --- |
+| `propulsion.motors[].kv` | $K_v$ |
+| `propulsion.motors[].resistance` | $R$ (temperature-scaled motor resistance) |
+| `propulsion.motors[].no_load_current` | $I_0$ |
+| `propulsion.motors[].current_max` | $I_{\max}$ |
+| `propulsion.batteries[].voltage_nominal` | $V_{\mathrm{nom}}$ |
+| `propulsion.batteries[].cells_series` | $n_{\mathrm{cells}}$ |
+| `propulsion.batteries[].cells_parallel` | Parallel string count ($n_{\mathrm{parallel}}$) |
+| `propulsion.batteries[].cell_resistance` | part of $R_{\mathrm{pack}}$ |
+| `propulsion.propellers[].(diameter,pitch,blade_count)` | Geometry input for propeller operating state |
 
 ### Condition Preparation
 
-Atmospheric state used in propulsion equations is built from analysis conditions.
+The goal of condition preparation is to translate analysis-side environment and mission inputs into solver variables used directly by propulsion equations. This stage normalizes the atmospheric state and mass-dependent reporting inputs.
 
-| Analysis field | Solver representation | Note |
-| --- | --- | --- |
-| `conditions.altitude_msl` | Atmosphere model | Contributes to density state |
-| `conditions.temperature` | Atmosphere model | Affects density/speed-of-sound state |
-| `conditions.air_density` | $\rho$ | Used as direct override when provided |
-| `conditions.total_mass` | $\mathrm{thrust\_to\_weight}$ reporting | Used mainly for output metric |
+| Analysis input | Solution mapping |
+| --- | --- |
+| `conditions.altitude_msl` | Altitude input to atmosphere model |
+| `conditions.temperature` | Temperature input to atmosphere model |
+| `conditions.air_density` | $\rho$ (direct density override) |
+| `conditions.total_mass` | Mass used for $\mathrm{thrust\_to\_weight}$ reporting |
 
-Inside the solve loop, propeller-side input is $V$, while electrical-side input is $V_{\mathrm{pack}}$, updated each iteration through sag feedback.
+### Analysis Configuration Inputs
+
+In addition to design and atmosphere inputs, the table below lists only the analysis parameters that are exposed directly in the UI and their solution-side mappings.
+
+| Config field | Solution mapping |
+| --- | --- |
+| `config.propulsion.use_battery_internal_resistance` | Sag model switch; enables/disables battery internal resistance contribution in the iteration. |
+| `config.propulsion.motor_efficiency_default` | Lower-bound motor efficiency for electrical power; used as $P_{\mathrm{motor,elec}}=\max\!\left(V_{\mathrm{motor}}I_{\mathrm{motor}},\,P_{\mathrm{shaft}}/\eta_{\mathrm{default}}\right)$. |
+| `config.propulsion.back_emf_scale` | $\eta_{\mathrm{bemf}}$ calibration factor; lower values require higher voltage/current for the same RPM. |
+| `config.propulsion.usable_capacity_ratio` | Usable energy factor; scales battery energy budget in propulsion outputs (especially runtime estimate). |
+| `config.propulsion.battery_discharge_efficiency` | $\eta_{\mathrm{batt}}$ efficiency; maps motor-side electrical demand to battery-side demand. |
+| `config.propulsion.esc_efficiency` | $\eta_{\mathrm{esc}}$ efficiency; maps ESC conversion losses into battery draw. |
+| `config.propulsion.rpm_steps` | Static sweep resolution; sets the number of sampled operating points in static solution. |
+| `config.propulsion.motor_max_temperature` | $T_{\max}$ limit; sets the upper temperature bound for valid operating points. |
+| `config.propulsion.motor_thermal_resistance` | $R_{\mathrm{th}}$ factor; converts motor loss power into temperature rise. |
+| `config.propulsion.cooling_level` | Cooling level (1-5); multiplies effective thermal resistance: 1→1.00, 2→0.95, 3→0.80, 4→0.75, 5→0.70. |
 
 ## Solution
+
+The solution is performed as a coupled operating-point search: propeller operating state is set from speed and rotational rate, then the resulting torque-thrust demand is matched with motor voltage-current equilibrium. Battery/ESC losses and voltage sag are fed back into this balance, and the point is accepted only if it passes validity limits.
 
 Power flow is represented directly in the solver as:
 
@@ -66,6 +80,8 @@ The loss summary for these transitions is:
 | Motor | $P_{\mathrm{motor}} \rightarrow P_{\mathrm{shaft}}$ | Copper loss $P_{\mathrm{Cu}} = I_{\mathrm{motor}}^2R$, no-load loss $P_0 \approx V_{\mathrm{motor}}I_0$, additional magnetic/mechanical losses |
 | Propeller | $P_{\mathrm{shaft}} \rightarrow T$ | Aerodynamic conversion losses; operating point set by $C_t/C_p$ and $J$ |
 
+### Propeller Operating Point
+
 The calculation starts by defining the propeller operating state. With flight speed $V$, rotational speed $n$, and diameter $D$, advance ratio is:
 
 $$
@@ -81,6 +97,8 @@ C_t = C_t(\mathrm{RPM}, J),
 \qquad
 C_p = C_p(\mathrm{RPM}, J)
 $$
+
+### Aerodynamic Load to Torque and Power
 
 Once coefficients are known, torque $Q_{\mathrm{prop}}$, thrust $T$, and shaft power $P_{\mathrm{shaft}}$ are obtained. Here $\rho$ is air density:
 
@@ -98,6 +116,8 @@ $$
 
 These equations define how aerodynamic loading is reflected into electrical demand. The strong diameter exponents ($D^4$, $D^5$) explain why even small diameter changes can significantly alter power and current levels.
 
+### Motor Electrical Equilibrium
+
 In motor equilibrium, torque-current and voltage balance are solved together. Here $K_v$ is speed constant, $K_t$ is torque constant, $I_0$ is no-load current, and $R$ is temperature-scaled resistance:
 
 $$
@@ -112,12 +132,18 @@ $$
 V_{\mathrm{motor}} \approx V_{\mathrm{back}} + I_{\mathrm{motor}}R
 $$
 
-Physically, higher propeller torque drives higher $I_{\mathrm{motor}}$, which raises both copper loss and required terminal voltage. The iterative solve searches for the $\mathrm{RPM}$-current pair that satisfies this coupled balance.
+Here $\eta_{\mathrm{bemf}}$ is the back-EMF calibration factor (`back_emf_scale` in advanced propulsion settings). Physically, higher propeller torque drives higher $I_{\mathrm{motor}}$, which raises both copper loss and required terminal voltage. The iterative solve searches for the $\mathrm{RPM}$-current pair that satisfies this coupled balance.
 
-Motor-side electrical power is mapped to battery side through ESC and battery efficiencies. Here $\eta_{\mathrm{esc}}$ is ESC efficiency and $\eta_{\mathrm{batt}}$ is battery discharge efficiency:
+### Battery and ESC Power Mapping
+
+Motor-side electrical power is mapped to battery side through ESC and battery efficiencies. Here $\eta_{\mathrm{esc}}$ is ESC efficiency and $\eta_{\mathrm{batt}}$ is battery discharge efficiency. The solver uses a conservative electrical-power estimate based on both voltage-current product and shaft/efficiency floor:
 
 $$
-P_{\mathrm{motor,elec}} \approx V_{\mathrm{motor}} I_{\mathrm{motor}}
+P_{\mathrm{motor,elec}} =
+\max\!\left(
+V_{\mathrm{motor}} I_{\mathrm{motor}},
+\frac{P_{\mathrm{shaft}}}{\eta_{\mathrm{default}}}
+\right)
 $$
 
 $$
@@ -130,18 +156,33 @@ $$
 
 The critical effect in this stage is cumulative loss stacking: for the same shaft requirement, battery power must increase as conversion efficiencies are applied, which then increases battery current.
 
-After pack current is known, voltage sag is updated via pack resistance $R_{\mathrm{pack}}$ and fed back into the next iteration:
+### Voltage Sag Feedback
+
+After pack current is known, voltage sag is updated via effective pack resistance and fed back into the next iteration. Here $R_{\mathrm{pack}}$ includes internal battery resistance (if enabled) plus wire resistance:
 
 $$
-V_{\mathrm{pack,new}} = V_{\mathrm{nom}} - I_{\mathrm{pack}}R_{\mathrm{pack}}
+R_{\mathrm{pack}} = R_{\mathrm{int}} + R_{\mathrm{wire}}
+$$
+
+$$
+V_{\mathrm{pack,new}} =
+\max\!\left(
+V_{\mathrm{nom}} - I_{\mathrm{pack}}R_{\mathrm{pack}},
+0.5\,V_{\mathrm{nom}}
+\right)
 $$
 
 This feedback captures the load-dependent voltage drop: when current rises, pack voltage falls, and the motor must satisfy thrust demand under a more constrained electrical state.
 
-Thermal and current safety are checked in the same loop. Here $T_{\mathrm{amb}}$ is ambient temperature, $R_{\mathrm{th}}$ is thermal resistance, and $T_{\max}$ is temperature limit:
+### Validity Limits
+
+This step determines whether an operating point is acceptable by checking current and thermal limits. Here $T_{\mathrm{amb}}$ is ambient temperature, $R_{\mathrm{th}}$ is thermal resistance, $k_{\mathrm{cool}}$ is cooling-level factor, and $T_{\max}$ is temperature limit:
 
 $$
-T_{\mathrm{motor}} = T_{\mathrm{amb}} + \left(P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}\right)R_{\mathrm{th}}
+T_{\mathrm{motor}} =
+T_{\mathrm{amb}} +
+\left(P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}\right)
+R_{\mathrm{th}}\,k_{\mathrm{cool}}
 $$
 
 $$
@@ -150,9 +191,11 @@ I_{\mathrm{motor}} > I_{\max}
 T_{\mathrm{motor}} > T_{\max}
 $$
 
-The thermal equation treats the electrical-to-shaft power gap as heat. As $P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}$ grows, temperature rises proportionally and can invalidate the point.
+The thermal equation treats the electrical-to-shaft power gap as heat. As $P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}$ grows, temperature rises proportionally; smaller $k_{\mathrm{cool}}$ reduces temperature rise for the same loss power. If either threshold is exceeded, the operating point is rejected.
 
-If either limit is exceeded, the operating point is rejected. For valid points, system efficiency is reported in gram-per-watt form. With $T_g$ as thrust in grams:
+### Reported Efficiency
+
+System efficiency is reported only for valid operating points, in gram-per-watt form. With $T_g$ as thrust in grams:
 
 $$
 \eta_{g/W} = \frac{T_g}{P_{\mathrm{batt}}}
