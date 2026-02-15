@@ -54,7 +54,6 @@ plugins:
             Introduction: Giriş
             Overview: Genel Bakış
             Analysis: Analiz
-            Workflow: İş Akışı
             Aerodynamics: Aerodinamik
             Propulsion: İtki
 
@@ -62,6 +61,5 @@ nav:
   - Introduction: index.md
   - Analysis:
     - Overview: analysis/index.md
-    - Workflow: analysis/workflow.md
     - Aerodynamics: analysis/aerodynamics.md
     - Propulsion: analysis/propulsion.md
