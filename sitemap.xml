@@ -2,72 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>None./</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="None"/>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/"/>
     </url>
     <url>
+        <loc>Nonedownload-and-install/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedownload-and-install/"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/download-and-install/"/>
+    </url>
+    <url>
+        <loc>Nonequick-start/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonequick-start/"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/quick-start/"/>
+    </url>
+    <url>
+        <loc>Nonesupport/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesupport/"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/support/"/>
+    </url>
+    <url>
         <loc>Noneanalysis/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/"/>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/"/>
     </url>
     <url>
         <loc>Noneanalysis/aerodynamics/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/aerodynamics/"/>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/aerodynamics/"/>
     </url>
     <url>
+        <loc>Noneanalysis/performance/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/performance/"/>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/performance/"/>
+    </url>
+    <url>
         <loc>Noneanalysis/propulsion/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/propulsion/"/>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/propulsion/"/>
     </url>
     <url>
-        <loc>Noneanalysis/workflow/</loc>
-        <lastmod>2026-02-10</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/workflow/"/>
-        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/workflow/"/>
-    </url>
-    <url>
         <loc>Nonetr/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/"/>
         <xhtml:link rel="alternate" hreflang="en" href="None"/>
     </url>
     <url>
+        <loc>Nonetr/download-and-install/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/download-and-install/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedownload-and-install/"/>
+    </url>
+    <url>
+        <loc>Nonetr/quick-start/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/quick-start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonequick-start/"/>
+    </url>
+    <url>
+        <loc>Nonetr/support/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/support/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesupport/"/>
+    </url>
+    <url>
         <loc>Nonetr/analysis/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/"/>
     </url>
     <url>
         <loc>Nonetr/analysis/aerodynamics/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/aerodynamics/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/aerodynamics/"/>
     </url>
     <url>
+        <loc>Nonetr/analysis/performance/</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/performance/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/performance/"/>
+    </url>
+    <url>
         <loc>Nonetr/analysis/propulsion/</loc>
-        <lastmod>2026-02-10</lastmod>
+        <lastmod>2026-02-15</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/propulsion/"/>
         <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/propulsion/"/>
-    </url>
-    <url>
-        <loc>Nonetr/analysis/workflow/</loc>
-        <lastmod>2026-02-10</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="tr" href="Nonetr/analysis/workflow/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneanalysis/workflow/"/>
     </url>
 </urlset>

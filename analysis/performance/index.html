@@ -11,16 +11,14 @@
       
       
       
-        <link rel="prev" href="../aerodynamics/">
+        <link rel="prev" href="../propulsion/">
       
-      
-        <link rel="next" href="../performance/">
       
       
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../tr/analysis/propulsion/" hreflang="tr">
+          <link rel="alternate" href="../../tr/analysis/performance/" hreflang="tr">
         
       
       
@@ -29,7 +27,7 @@
     
     
       
-        <title>Propulsion - Setuav Docs</title>
+        <title>Flight Performance - Setuav Docs</title>
       
     
     
@@ -82,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#propulsion" class="md-skip">
+        <a href="#flight-performance" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Propulsion
+              Flight Performance
             
           </span>
         </div>
@@ -170,7 +168,7 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../tr/analysis/propulsion/" hreflang="tr" class="md-select__link">
+            <a href="../../tr/analysis/performance/" hreflang="tr" class="md-select__link">
               Türkçe
             </a>
           </li>
@@ -478,6 +476,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -497,7 +523,7 @@
   <span class="md-ellipsis">
     
   
-    Propulsion
+    Flight Performance
   
 
     
@@ -515,7 +541,7 @@
   <span class="md-ellipsis">
     
   
-    Propulsion
+    Flight Performance
   
 
     
@@ -564,10 +590,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#component-preparation" class="md-nav__link">
+  <a href="#input-preparation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component Preparation
+        Input Preparation
       
     </span>
   </a>
@@ -575,21 +601,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#condition-preparation" class="md-nav__link">
+  <a href="#configuration-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Condition Preparation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-configuration-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analysis Configuration Inputs
+        Configuration Inputs
       
     </span>
   </a>
@@ -614,10 +629,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#propeller-operating-point" class="md-nav__link">
+  <a href="#stall-speed-and-velocity-bounds" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Propeller Operating Point
+        Stall Speed and Velocity Bounds
       
     </span>
   </a>
@@ -625,10 +640,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#aerodynamic-load-to-torque-and-power" class="md-nav__link">
+  <a href="#level-flight-power-required" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aerodynamic Load to Torque and Power
+        Level-Flight Power Required
       
     </span>
   </a>
@@ -636,10 +651,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#motor-electrical-equilibrium" class="md-nav__link">
+  <a href="#coupled-propulsion-solve-single-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Motor Electrical Equilibrium
+        Coupled Propulsion Solve (Single Model)
       
     </span>
   </a>
@@ -647,10 +662,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#battery-and-esc-power-mapping" class="md-nav__link">
+  <a href="#endurance-and-range-curves" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Battery and ESC Power Mapping
+        Endurance and Range Curves
       
     </span>
   </a>
@@ -658,10 +673,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#voltage-sag-feedback" class="md-nav__link">
+  <a href="#optimal-speeds" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Voltage Sag Feedback
+        Optimal Speeds
       
     </span>
   </a>
@@ -669,10 +684,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#validity-limits" class="md-nav__link">
+  <a href="#performance-metrics-and-cruise-point" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validity Limits
+        Performance Metrics and Cruise Point
       
     </span>
   </a>
@@ -680,10 +695,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reported-efficiency" class="md-nav__link">
+  <a href="#invalidity-and-fallback-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reported Efficiency
+        Invalidity and Fallback Behavior
       
     </span>
   </a>
@@ -699,34 +714,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../performance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Flight Performance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -789,10 +776,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#component-preparation" class="md-nav__link">
+  <a href="#input-preparation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component Preparation
+        Input Preparation
       
     </span>
   </a>
@@ -800,21 +787,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#condition-preparation" class="md-nav__link">
+  <a href="#configuration-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Condition Preparation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-configuration-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analysis Configuration Inputs
+        Configuration Inputs
       
     </span>
   </a>
@@ -839,10 +815,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#propeller-operating-point" class="md-nav__link">
+  <a href="#stall-speed-and-velocity-bounds" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Propeller Operating Point
+        Stall Speed and Velocity Bounds
       
     </span>
   </a>
@@ -850,10 +826,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#aerodynamic-load-to-torque-and-power" class="md-nav__link">
+  <a href="#level-flight-power-required" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aerodynamic Load to Torque and Power
+        Level-Flight Power Required
       
     </span>
   </a>
@@ -861,10 +837,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#motor-electrical-equilibrium" class="md-nav__link">
+  <a href="#coupled-propulsion-solve-single-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Motor Electrical Equilibrium
+        Coupled Propulsion Solve (Single Model)
       
     </span>
   </a>
@@ -872,10 +848,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#battery-and-esc-power-mapping" class="md-nav__link">
+  <a href="#endurance-and-range-curves" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Battery and ESC Power Mapping
+        Endurance and Range Curves
       
     </span>
   </a>
@@ -883,10 +859,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#voltage-sag-feedback" class="md-nav__link">
+  <a href="#optimal-speeds" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Voltage Sag Feedback
+        Optimal Speeds
       
     </span>
   </a>
@@ -894,10 +870,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#validity-limits" class="md-nav__link">
+  <a href="#performance-metrics-and-cruise-point" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validity Limits
+        Performance Metrics and Cruise Point
       
     </span>
   </a>
@@ -905,10 +881,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reported-efficiency" class="md-nav__link">
+  <a href="#invalidity-and-fallback-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reported Efficiency
+        Invalidity and Fallback Behavior
       
     </span>
   </a>
@@ -937,14 +913,13 @@
 
 
 
-<h1 id="propulsion">Propulsion</h1>
-<p>Propulsion analysis computes how much thrust an electric propulsion system can produce at a given flight speed and what electrical cost is required to produce it. The result depends directly on motor physical properties (<span class="arithmatex">\(K_v\)</span>, <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(I_0\)</span>, current limit), battery electrical state (nominal voltage, internal resistance, efficiency, usable capacity), ESC conversion efficiency, propeller geometry and aerodynamic characteristics (<span class="arithmatex">\(C_t\)</span>, <span class="arithmatex">\(C_p\)</span>), and ambient conditions (especially air density <span class="arithmatex">\(\rho\)</span>). Physically, the calculation is solved as one coupled energy-loading chain: compute advance ratio <span class="arithmatex">\(J\)</span> from speed and rotational rate, derive propeller thrust/torque loading, solve motor voltage-current-torque equilibrium, then feed battery/ESC losses and voltage sag back into the same operating point.</p>
+<h1 id="flight-performance">Flight Performance</h1>
+<p>Flight performance analysis derives the speed envelope, mission speeds, climb capability, range, and endurance from aerodynamic and propulsion outputs. The core objective is to compare, at each speed point, the thrust/power required for level flight against the thrust/power the system can actually provide, and to keep this comparison physically consistent.</p>
 <h2 id="method">Method</h2>
-<p>This method treats the physical problem as a coupled equilibrium: for a given flight speed <span class="arithmatex">\(V\)</span> and throttle <span class="arithmatex">\(u\)</span> (or required thrust), propeller loading, motor electrical balance, and battery/ESC energy conversion must be satisfied at the same operating point. The solver first defines propeller operating state through <span class="arithmatex">\(J\)</span>, then iteratively matches the resulting torque-thrust demand with motor-side <span class="arithmatex">\(K_v\)</span>-<span class="arithmatex">\(R\)</span>-<span class="arithmatex">\(I_0\)</span> voltage-current-torque balance. Voltage sag and conversion losses are fed back each iteration until a single converged operating point is found, so static and dynamic outputs come from the same physics model.</p>
+<p>Setuav solves this as a coupled velocity sweep. The aerodynamic side first computes level-flight <span class="arithmatex">\(C_L\)</span>, <span class="arithmatex">\(C_D\)</span>, drag, and required power; then the propulsion side is evaluated with a single shared model. That shared model is <code>PropulsionAnalyzer.solve_required_thrust_sweep(...)</code>, which uses the same motor-propeller-battery equilibrium solver used by propulsion analysis. As a result, range/endurance, cruise, and envelope metrics in flight performance remain consistent with the propulsion electrical model.</p>
 <h2 id="preparation">Preparation</h2>
-<h3 id="component-preparation">Component Preparation</h3>
-<p>The goal of this stage is to convert propulsion inputs into a solver-ready and physically consistent data set. After validation, the analysis runs on one unified component specification instead of handling incomplete or conflicting fields at runtime.</p>
-<p>Preparation normalizes three groups: motor electrical parameters, battery pack parameters, and propeller geometry. This keeps all operating-point solves on the same data structure.</p>
+<h3 id="input-preparation">Input Preparation</h3>
+<p>The analyzer uses the following inputs and maps them into solution variables:</p>
 <table>
 <thead>
 <tr>
@@ -954,73 +929,49 @@
 </thead>
 <tbody>
 <tr>
-<td><code>propulsion.motors[].kv</code></td>
-<td><span class="arithmatex">\(K_v\)</span></td>
+<td><code>aero.cl_max</code></td>
+<td><span class="arithmatex">\(C_{L,\max}\)</span> for stall-speed calculation</td>
 </tr>
 <tr>
-<td><code>propulsion.motors[].resistance</code></td>
-<td><span class="arithmatex">\(R\)</span> (temperature-scaled motor resistance)</td>
+<td><code>aero.area</code></td>
+<td>Reference area <span class="arithmatex">\(S\)</span> (<code>mm^2 -&gt; m^2</code>)</td>
 </tr>
 <tr>
-<td><code>propulsion.motors[].no_load_current</code></td>
-<td><span class="arithmatex">\(I_0\)</span></td>
+<td><code>aero.polars.cl_values</code>, <code>aero.polars.cd_values</code></td>
+<td><span class="arithmatex">\(C_D(C_L)\)</span> interpolation</td>
 </tr>
 <tr>
-<td><code>propulsion.motors[].current_max</code></td>
-<td><span class="arithmatex">\(I_{\max}\)</span></td>
+<td><code>aero.cd_min</code></td>
+<td>Constant-drag fallback when polar is missing</td>
 </tr>
 <tr>
-<td><code>propulsion.batteries[].voltage_nominal</code></td>
-<td><span class="arithmatex">\(V_{\mathrm{nom}}\)</span></td>
+<td><code>aero.ld_max</code></td>
+<td><code>max_ld_ratio</code>, <code>glide_ratio</code> outputs</td>
 </tr>
 <tr>
-<td><code>propulsion.batteries[].cells_series</code></td>
-<td><span class="arithmatex">\(n_{\mathrm{cells}}\)</span></td>
+<td><code>aero.operating_velocity</code></td>
+<td><code>best_ld</code> speed output</td>
 </tr>
 <tr>
-<td><code>propulsion.batteries[].cells_parallel</code></td>
-<td>Parallel string count (<span class="arithmatex">\(n_{\mathrm{parallel}}\)</span>)</td>
+<td><code>total_mass</code></td>
+<td>Weight <span class="arithmatex">\(W = mg\)</span></td>
 </tr>
 <tr>
-<td><code>propulsion.batteries[].cell_resistance</code></td>
-<td>part of <span class="arithmatex">\(R_{\mathrm{pack}}\)</span></td>
+<td><code>air_density</code></td>
+<td>Density <span class="arithmatex">\(\rho\)</span></td>
 </tr>
 <tr>
-<td><code>propulsion.propellers[].(diameter,pitch,blade_count)</code></td>
-<td>Geometry input for propeller operating state</td>
+<td><code>battery_capacity</code></td>
+<td>Energy-based range/endurance (<code>mAh -&gt; Ah</code>)</td>
+</tr>
+<tr>
+<td><code>design.propulsion</code></td>
+<td>Voltage-window validation and propulsion solver setup</td>
 </tr>
 </tbody>
 </table>
-<h3 id="condition-preparation">Condition Preparation</h3>
-<p>The goal of condition preparation is to translate analysis-side environment and mission inputs into solver variables used directly by propulsion equations. This stage normalizes the atmospheric state and mass-dependent reporting inputs.</p>
-<table>
-<thead>
-<tr>
-<th>Analysis input</th>
-<th>Solution mapping</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>conditions.altitude_msl</code></td>
-<td>Altitude input to atmosphere model</td>
-</tr>
-<tr>
-<td><code>conditions.temperature</code></td>
-<td>Temperature input to atmosphere model</td>
-</tr>
-<tr>
-<td><code>conditions.air_density</code></td>
-<td><span class="arithmatex">\(\rho\)</span> (direct density override)</td>
-</tr>
-<tr>
-<td><code>conditions.total_mass</code></td>
-<td>Mass used for <span class="arithmatex">\(\mathrm{thrust\_to\_weight}\)</span> reporting</td>
-</tr>
-</tbody>
-</table>
-<h3 id="analysis-configuration-inputs">Analysis Configuration Inputs</h3>
-<p>In addition to design and atmosphere inputs, the table below lists only the analysis parameters that are exposed directly in the UI and their solution-side mappings.</p>
+<h3 id="configuration-inputs">Configuration Inputs</h3>
+<p>The fields used directly by this class are:</p>
 <table>
 <thead>
 <tr>
@@ -1030,172 +981,100 @@
 </thead>
 <tbody>
 <tr>
-<td><code>config.propulsion.use_battery_internal_resistance</code></td>
-<td>Sag model switch; enables/disables battery internal resistance contribution in the iteration.</td>
+<td><code>config.performance.velocity_min</code></td>
+<td>Lower bound of velocity sweep</td>
 </tr>
 <tr>
-<td><code>config.propulsion.motor_efficiency_default</code></td>
-<td>Lower-bound motor efficiency for electrical power; used as <span class="arithmatex">\(P_{\mathrm{motor,elec}}=\max\!\left(V_{\mathrm{motor}}I_{\mathrm{motor}},\,P_{\mathrm{shaft}}/\eta_{\mathrm{default}}\right)\)</span>.</td>
+<td><code>config.performance.velocity_max</code></td>
+<td>Upper bound of velocity sweep</td>
 </tr>
 <tr>
-<td><code>config.propulsion.back_emf_scale</code></td>
-<td><span class="arithmatex">\(\eta_{\mathrm{bemf}}\)</span> calibration factor; lower values require higher voltage/current for the same RPM.</td>
+<td><code>config.performance.velocity_steps</code></td>
+<td>Number of velocity points</td>
+</tr>
+<tr>
+<td><code>config.performance.stall_margin</code></td>
+<td>Minimum safe speed: <span class="arithmatex">\(V_{\min}=V_{\text{stall}}\cdot\text{stall\_margin}\)</span></td>
 </tr>
 <tr>
 <td><code>config.propulsion.usable_capacity_ratio</code></td>
-<td>Usable energy factor; scales battery energy budget in propulsion outputs (especially runtime estimate).</td>
-</tr>
-<tr>
-<td><code>config.propulsion.battery_discharge_efficiency</code></td>
-<td><span class="arithmatex">\(\eta_{\mathrm{batt}}\)</span> efficiency; maps motor-side electrical demand to battery-side demand.</td>
-</tr>
-<tr>
-<td><code>config.propulsion.esc_efficiency</code></td>
-<td><span class="arithmatex">\(\eta_{\mathrm{esc}}\)</span> efficiency; maps ESC conversion losses into battery draw.</td>
-</tr>
-<tr>
-<td><code>config.propulsion.rpm_steps</code></td>
-<td>Static sweep resolution; sets the number of sampled operating points in static solution.</td>
-</tr>
-<tr>
-<td><code>config.propulsion.motor_max_temperature</code></td>
-<td><span class="arithmatex">\(T_{\max}\)</span> limit; sets the upper temperature bound for valid operating points.</td>
-</tr>
-<tr>
-<td><code>config.propulsion.motor_thermal_resistance</code></td>
-<td><span class="arithmatex">\(R_{\mathrm{th}}\)</span> factor; converts motor loss power into temperature rise.</td>
-</tr>
-<tr>
-<td><code>config.propulsion.cooling_level</code></td>
-<td>Cooling level (1-5); multiplies effective thermal resistance: 1→1.00, 2→0.95, 3→0.80, 4→0.75, 5→0.70.</td>
+<td>Usable battery-energy scaling factor</td>
 </tr>
 </tbody>
 </table>
 <h2 id="solution">Solution</h2>
-<p>The solution is performed as a coupled operating-point search: propeller operating state is set from speed and rotational rate, then the resulting torque-thrust demand is matched with motor voltage-current equilibrium. Battery/ESC losses and voltage sag are fed back into this balance, and the point is accepted only if it passes validity limits.</p>
-<p>Power flow is represented directly in the solver as:</p>
+<p>The solution runs the same sequence over one shared velocity array and produces all curves on that array.</p>
+<h3 id="stall-speed-and-velocity-bounds">Stall Speed and Velocity Bounds</h3>
+<p>Stall speed is computed from lift equilibrium:</p>
 <div class="arithmatex">\[
-P_{\mathrm{bat}}
-\;\xrightarrow[\mathrm{ESC}]{\eta_{\mathrm{esc}}}\;
-P_{\mathrm{motor}}
-\;\xrightarrow[\mathrm{Motor}]{I^2R,\;I_0,\;\eta_{\mathrm{bemf}}}\;
-P_{\mathrm{shaft}}
-\;\xrightarrow[\mathrm{Propeller}]{C_t,\;C_p,\;J}\;
-T
+V_{\text{stall}}=\sqrt{\frac{2W}{\rho S C_{L,\max}}}
 \]</div>
-<p>Here, <span class="arithmatex">\(P_{\mathrm{bat}}\)</span> is battery draw, <span class="arithmatex">\(P_{\mathrm{motor}}\)</span> is motor electrical input, <span class="arithmatex">\(P_{\mathrm{shaft}}\)</span> is shaft power, and <span class="arithmatex">\(T\)</span> is thrust output. Terms written above each transition indicate the dominant conversion/loss mechanism in that stage.</p>
-<p>The loss summary for these transitions is:</p>
-<table>
-<thead>
-<tr>
-<th>Stage</th>
-<th>Transition</th>
-<th>Loss mechanism</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ESC</td>
-<td><span class="arithmatex">\(P_{\mathrm{bat}} \rightarrow P_{\mathrm{motor}}\)</span></td>
-<td>Switching/conduction losses, <span class="arithmatex">\(P_{\mathrm{motor}} \approx P_{\mathrm{bat}}\eta_{\mathrm{esc}}\)</span></td>
-</tr>
-<tr>
-<td>Motor</td>
-<td><span class="arithmatex">\(P_{\mathrm{motor}} \rightarrow P_{\mathrm{shaft}}\)</span></td>
-<td>Copper loss <span class="arithmatex">\(P_{\mathrm{Cu}} = I_{\mathrm{motor}}^2R\)</span>, no-load loss <span class="arithmatex">\(P_0 \approx V_{\mathrm{motor}}I_0\)</span>, additional magnetic/mechanical losses</td>
-</tr>
-<tr>
-<td>Propeller</td>
-<td><span class="arithmatex">\(P_{\mathrm{shaft}} \rightarrow T\)</span></td>
-<td>Aerodynamic conversion losses; operating point set by <span class="arithmatex">\(C_t/C_p\)</span> and <span class="arithmatex">\(J\)</span></td>
-</tr>
-</tbody>
-</table>
-<h3 id="propeller-operating-point">Propeller Operating Point</h3>
-<p>The calculation starts by defining the propeller operating state. With flight speed <span class="arithmatex">\(V\)</span>, rotational speed <span class="arithmatex">\(n\)</span>, and diameter <span class="arithmatex">\(D\)</span>, advance ratio is:</p>
+<p>Sweep start is not simply the configured minimum. It is clamped to the safe start speed:
+<span class="arithmatex">\(V_{\text{start}}=\max(V_{\text{stall}}\cdot\text{stall\_margin},\,V_{\min,config})\)</span>.</p>
+<h3 id="level-flight-power-required">Level-Flight Power Required</h3>
+<p>At each speed point, required lift coefficient is:</p>
 <div class="arithmatex">\[
-J = \frac{V}{nD}
+C_{L,\text{req}} = \frac{W}{0.5\rho V^2 S}
 \]</div>
-<p>This equation makes <span class="arithmatex">\(J\)</span> the core loading indicator of forward-flight propeller operation. As <span class="arithmatex">\(J\)</span> changes, the propeller shifts to a different aerodynamic operating condition, which directly changes required torque and produced thrust.</p>
-<p>Using <span class="arithmatex">\(J\)</span> and <span class="arithmatex">\(\mathrm{RPM}\)</span>, coefficients are read from the propeller database:</p>
+<p>Then <span class="arithmatex">\(C_D\)</span> is obtained from polar interpolation <span class="arithmatex">\(C_D(C_L)\)</span>; outside the polar bounds, parabolic extrapolation is used:</p>
 <div class="arithmatex">\[
-C_t = C_t(\mathrm{RPM}, J),
+C_D = C_{D0} + k C_L^2
+\]</div>
+<p>Drag and required power:</p>
+<div class="arithmatex">\[
+D = 0.5\rho V^2 S C_D,
 \qquad
-C_p = C_p(\mathrm{RPM}, J)
+P_{\text{req}} = D\,V
 \]</div>
-<h3 id="aerodynamic-load-to-torque-and-power">Aerodynamic Load to Torque and Power</h3>
-<p>Once coefficients are known, torque <span class="arithmatex">\(Q_{\mathrm{prop}}\)</span>, thrust <span class="arithmatex">\(T\)</span>, and shaft power <span class="arithmatex">\(P_{\mathrm{shaft}}\)</span> are obtained. Here <span class="arithmatex">\(\rho\)</span> is air density:</p>
+<h3 id="coupled-propulsion-solve-single-model">Coupled Propulsion Solve (Single Model)</h3>
+<p>For the same velocity array, the required-thrust curve is passed to propulsion:</p>
 <div class="arithmatex">\[
-Q_{\mathrm{prop}} = \frac{C_p \rho n^2 D^5}{2\pi}
+[T_{\text{avail}}(V),\;P_{\text{avail}}(V),\;P_{\text{batt,req}}(V),\;\text{feasible}(V)]
+\leftarrow
+\texttt{solve\_required\_thrust\_sweep}
 \]</div>
+<p>Here <span class="arithmatex">\(P_{\text{avail}}\)</span> is available <strong>propulsive power</strong>, while <span class="arithmatex">\(P_{\text{batt,req}}\)</span> is battery-side electrical power required to hold the level-flight point.</p>
+<h3 id="endurance-and-range-curves">Endurance and Range Curves</h3>
+<p>Energy is computed from the same electrical model output <span class="arithmatex">\(P_{\text{batt,req}}\)</span>. Usable battery energy:</p>
 <div class="arithmatex">\[
-T = C_t \rho n^2 D^4
+E_{\text{batt}} = V_{\text{nom}}\,Q_{\text{Ah}}\,\eta_{\text{usable}}
 \]</div>
+<p>For only feasible points with positive required electrical power:</p>
 <div class="arithmatex">\[
-P_{\mathrm{shaft}} = C_p \rho n^3 D^5
+\text{Endurance}(V) = \frac{E_{\text{batt}}}{P_{\text{batt,req}}(V)},
+\qquad
+\text{Range}(V) = V\cdot 3.6\cdot \text{Endurance}(V)
 \]</div>
-<p>These equations define how aerodynamic loading is reflected into electrical demand. The strong diameter exponents (<span class="arithmatex">\(D^4\)</span>, <span class="arithmatex">\(D^5\)</span>) explain why even small diameter changes can significantly alter power and current levels.</p>
-<h3 id="motor-electrical-equilibrium">Motor Electrical Equilibrium</h3>
-<p>In motor equilibrium, torque-current and voltage balance are solved together. Here <span class="arithmatex">\(K_v\)</span> is speed constant, <span class="arithmatex">\(K_t\)</span> is torque constant, <span class="arithmatex">\(I_0\)</span> is no-load current, and <span class="arithmatex">\(R\)</span> is temperature-scaled resistance:</p>
+<h3 id="optimal-speeds">Optimal Speeds</h3>
+<p>On the feasible mission mask:</p>
+<ul>
+<li><code>best_endurance</code>: speed with minimum <span class="arithmatex">\(P_{\text{batt,req}}\)</span></li>
+<li><code>best_range</code>: speed with maximum <code>range_curve</code></li>
+<li><code>best_climb</code>: speed with maximum <span class="arithmatex">\((P_{\text{avail}}-P_{\text{req}})\)</span></li>
+<li><code>best_ld</code>: directly <code>aero.operating_velocity</code></li>
+</ul>
+<p>In this analyzer, reported <code>cruise_speed</code> is assigned as <code>best_range</code> in the raw
+calculation flow. In other words, cruise selection is driven by direct range
+maximization, without an additional UI/operational rule at this step.</p>
+<p>Raw-data alternatives for cruise definition:</p>
+<ol>
+<li><code>best_endurance</code>-based cruise:<br />
+   choose speed minimizing <span class="arithmatex">\(P_{\text{batt,req}}(V)\)</span>; objective is maximum loiter time.</li>
+<li><code>best_climb</code>-based cruise:<br />
+   choose speed maximizing <span class="arithmatex">\((P_{\text{avail}}-P_{\text{req}})\)</span>; objective is climb-phase priority.</li>
+<li><code>best_ld</code>-based cruise:<br />
+   choose aerodynamic-efficiency reference speed (<code>aero.operating_velocity</code>).</li>
+</ol>
+<h3 id="performance-metrics-and-cruise-point">Performance Metrics and Cruise Point</h3>
+<p>Maximum speed is taken as the last feasible velocity point. Climb rate is:</p>
 <div class="arithmatex">\[
-I_{\mathrm{motor}} = \frac{Q_{\mathrm{prop}}}{K_t} + I_0
+\text{RoC}(V)=\frac{P_{\text{avail}}(V)-P_{\text{req}}(V)}{W}
 \]</div>
-<div class="arithmatex">\[
-V_{\mathrm{back}} = \frac{\mathrm{RPM}}{K_v \eta_{\mathrm{bemf}}}
-\]</div>
-<div class="arithmatex">\[
-V_{\mathrm{motor}} \approx V_{\mathrm{back}} + I_{\mathrm{motor}}R
-\]</div>
-<p>Here <span class="arithmatex">\(\eta_{\mathrm{bemf}}\)</span> is the back-EMF calibration factor (<code>back_emf_scale</code> in advanced propulsion settings). Physically, higher propeller torque drives higher <span class="arithmatex">\(I_{\mathrm{motor}}\)</span>, which raises both copper loss and required terminal voltage. The iterative solve searches for the <span class="arithmatex">\(\mathrm{RPM}\)</span>-current pair that satisfies this coupled balance.</p>
-<h3 id="battery-and-esc-power-mapping">Battery and ESC Power Mapping</h3>
-<p>Motor-side electrical power is mapped to battery side through ESC and battery efficiencies. Here <span class="arithmatex">\(\eta_{\mathrm{esc}}\)</span> is ESC efficiency and <span class="arithmatex">\(\eta_{\mathrm{batt}}\)</span> is battery discharge efficiency. The solver uses a conservative electrical-power estimate based on both voltage-current product and shaft/efficiency floor:</p>
-<div class="arithmatex">\[
-P_{\mathrm{motor,elec}} =
-\max\!\left(
-V_{\mathrm{motor}} I_{\mathrm{motor}},
-\frac{P_{\mathrm{shaft}}}{\eta_{\mathrm{default}}}
-\right)
-\]</div>
-<div class="arithmatex">\[
-P_{\mathrm{batt}} = \frac{P_{\mathrm{motor,elec}}}{\eta_{\mathrm{esc}} \eta_{\mathrm{batt}}}
-\]</div>
-<div class="arithmatex">\[
-I_{\mathrm{pack}} = \frac{P_{\mathrm{batt}}}{V_{\mathrm{pack}}}
-\]</div>
-<p>The critical effect in this stage is cumulative loss stacking: for the same shaft requirement, battery power must increase as conversion efficiencies are applied, which then increases battery current.</p>
-<h3 id="voltage-sag-feedback">Voltage Sag Feedback</h3>
-<p>After pack current is known, voltage sag is updated via effective pack resistance and fed back into the next iteration. Here <span class="arithmatex">\(R_{\mathrm{pack}}\)</span> includes internal battery resistance (if enabled) plus wire resistance:</p>
-<div class="arithmatex">\[
-R_{\mathrm{pack}} = R_{\mathrm{int}} + R_{\mathrm{wire}}
-\]</div>
-<div class="arithmatex">\[
-V_{\mathrm{pack,new}} =
-\max\!\left(
-V_{\mathrm{nom}} - I_{\mathrm{pack}}R_{\mathrm{pack}},
-0.5\,V_{\mathrm{nom}}
-\right)
-\]</div>
-<p>This feedback captures the load-dependent voltage drop: when current rises, pack voltage falls, and the motor must satisfy thrust demand under a more constrained electrical state.</p>
-<h3 id="validity-limits">Validity Limits</h3>
-<p>This step determines whether an operating point is acceptable by checking current and thermal limits. Here <span class="arithmatex">\(T_{\mathrm{amb}}\)</span> is ambient temperature, <span class="arithmatex">\(R_{\mathrm{th}}\)</span> is thermal resistance, <span class="arithmatex">\(k_{\mathrm{cool}}\)</span> is cooling-level factor, and <span class="arithmatex">\(T_{\max}\)</span> is temperature limit:</p>
-<div class="arithmatex">\[
-T_{\mathrm{motor}} =
-T_{\mathrm{amb}} +
-\left(P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}\right)
-R_{\mathrm{th}}\,k_{\mathrm{cool}}
-\]</div>
-<div class="arithmatex">\[
-I_{\mathrm{motor}} &gt; I_{\max}
-\quad \text{or} \quad
-T_{\mathrm{motor}} &gt; T_{\max}
-\]</div>
-<p>The thermal equation treats the electrical-to-shaft power gap as heat. As <span class="arithmatex">\(P_{\mathrm{motor,elec}} - P_{\mathrm{shaft}}\)</span> grows, temperature rises proportionally; smaller <span class="arithmatex">\(k_{\mathrm{cool}}\)</span> reduces temperature rise for the same loss power. If either threshold is exceeded, the operating point is rejected.</p>
-<h3 id="reported-efficiency">Reported Efficiency</h3>
-<p>System efficiency is reported only for valid operating points, in gram-per-watt form. With <span class="arithmatex">\(T_g\)</span> as thrust in grams:</p>
-<div class="arithmatex">\[
-\eta_{g/W} = \frac{T_g}{P_{\mathrm{batt}}}
-\]</div>
-<p>This metric directly quantifies how much thrust is produced per battery Watt, making cross-speed comparison straightforward. The same chain is evaluated across all speeds for dynamic curves, and the near-zero-speed slice is used for static outputs.</p>
+<p>Best climb angle is computed at the maximum excess-power point using
+<span class="arithmatex">\(\sin\gamma=\text{RoC}/V\)</span>.</p>
+<p>Cruise is not computed by a separate approximate model; it is solved with the same propulsion operating-point solver via <code>solve_required_thrust_operating_point(...)</code>.</p>
+<h3 id="invalidity-and-fallback-behavior">Invalidity and Fallback Behavior</h3>
+<p>If battery voltage is incompatible with motor/ESC voltage windows, analysis returns a zeroed result. If no propulsion solver is available, available-power/thrust curves remain zero and powered metrics are limited. If battery capacity is not available, range/endurance curves and related metrics remain zero.</p>
 
 
 
